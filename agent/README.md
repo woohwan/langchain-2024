@@ -1,0 +1,6 @@
+- 속도: OpenAI를 따라 갈 수 없음.
+- output
+  - 각 LLM마다 모두 다름.
+  - OpenAI 가 현재 가장 깔끔.
+  - Claude의 경우, 별도의 작업 필요
+- python 3.11.5
