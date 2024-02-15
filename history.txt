@@ -1,0 +1,2 @@
+○ 24. 02. 15
+  - repo langchain-2024에서 langchain agent를 통해 간단한 함수 콜 성공 (/wo chat history)
