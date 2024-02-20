@@ -47,9 +47,6 @@ def add_tools():
 def call_function(tool_name, parameters):
     func = getattr(fitcloud, tool_name)
 
-    parameters['accountId'] = "532805286864"
-    parameters['token'] = "8E50D599548535AEED40212E61BAE689"
-
     print("parameters",  parameters)
     output = func(**parameters)
     return output
@@ -84,7 +81,7 @@ def etree_to_dict(t) -> dict[str, Any]:
             d[t.tag] = t.text
     return d
 
-def run_loop(prompt):
+def run_loop(prompt, accountId:str, token: str):
     print(prompt)
     # Start function calling loop
     while True:
@@ -138,6 +135,10 @@ def run_loop(prompt):
                 param_dict = etree_to_dict(parameters_xml)
                 parameters = param_dict["parameters"]
 
+                # 외부에서 고정 값으로 들어오는 값
+                parameters['accountId'] = accountId
+                parameters['token'] = token
+
                 # Call the tool we defined in tools.py
                 output = call_function(tool_name_from_xml, parameters)
 
@@ -160,4 +161,4 @@ def run_loop(prompt):
 user_input = "2023년 9월 자원 사용량은?"
 tools_string = add_tools()
 prompt = create_prompt(tools_string, user_input)
-run_loop(prompt)
+run_loop(prompt, accountId="532805286864", token="8E50D599548535AEED40212E61BAE689")
