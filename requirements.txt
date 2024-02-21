@@ -2,3 +2,4 @@ langchain
 boto3
 langchain_experimental
 youtube_search
+defusedxml
