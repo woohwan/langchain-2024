@@ -3,12 +3,23 @@ from defusedxml import ElementTree
 from collections import defaultdict
 import os
 from typing import Any
-# import tools
+import time
 import fitcloud
 import boto3
 import json
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
 
+# timer decorator
+def time_duration(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f"{func.__name__} executed in {end_time - start_time} seconds")
+        return result
+    return wrapper
+
+# fit cloud api belows
 def create_prompt(tools_string, user_input):
     prompt_template = f"""
 In this environment you have access to a set of tools you can use to answer the user's question.
@@ -81,6 +92,7 @@ def etree_to_dict(t) -> dict[str, Any]:
             d[t.tag] = t.text
     return d
 
+@time_duration
 def run_loop(prompt, accountId:str, token: str):
     print(prompt)
     # Start function calling loop
@@ -156,9 +168,8 @@ def run_loop(prompt, accountId:str, token: str):
             print(partial_completion)
             break
 
-# user_input = "Can you check the weather for me in Paris, France?"
 # user_input = "account id 532805286864의 2023년 9월 자원 사용량은? token 값은 '8E50D599548535AEED40212E61BAE689'입니다?"
 user_input = "2023년 9월 자원 사용량은?"
 tools_string = add_tools()
 prompt = create_prompt(tools_string, user_input)
-run_loop(prompt, accountId="532805286864", token="EB3FDEAAC38CE386D8FD0205D048CFC2")
+run_loop(prompt, accountId="532805286864", token="86B85138A2E2A6119F3801F10C20C067")

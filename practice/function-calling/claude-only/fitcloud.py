@@ -4,8 +4,8 @@ import pandas as pd
 fitcloud_url = "https://aws-dev.fitcloud.co.kr"
 corpId = "KDjAqAG0TnEAAAFK5eqDUL0A"
 
-accountId ="532805286864"
-token = "8E50D599548535AEED40212E61BAE689"
+# accountId ="532805286864"
+# token = "86B85138A2E2A6119F3801F10C20C067"
 
 # account 별 월 별 사용량 (saving plan 포함)
 # type: usage - ApplySavingsPlanCompute
@@ -135,3 +135,4 @@ for example. not '2023-09-01' but '202309' </description>
 
 
 list_of_tools_specs = [corp_month_internal_description]
+

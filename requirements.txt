@@ -1,5 +1,7 @@
-langchain
+langchain==0.1.4
 boto3
 langchain_experimental
 youtube_search
 defusedxml
+ipykernel
+pandas
