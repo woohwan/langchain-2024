@@ -172,4 +172,4 @@ def run_loop(prompt, accountId:str, token: str):
 user_input = "2023년 9월 자원 사용량은?"
 tools_string = add_tools()
 prompt = create_prompt(tools_string, user_input)
-run_loop(prompt, accountId="532805286864", token="86B85138A2E2A6119F3801F10C20C067")
+run_loop(prompt, accountId="532805286864", token="151C75D463D0601E490A0B1EA283D841")
