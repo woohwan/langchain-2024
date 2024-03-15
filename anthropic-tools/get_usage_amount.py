@@ -49,7 +49,7 @@ while True:
   elapsed_time = end_time - start_time
 
   print(result)
-  print("elapsed time: ", elapsed_time)
+  print("elapsed time: ", elapsed_time, ' secs')
   print("-"*80)
   print('\n\n')
 
